@@ -6,7 +6,22 @@
 }
 body{
     background-color:var(--tertiary);
+    overflow-x: hidden !important;
 }
 .navbar{
     background-color: var(--primary) !important;
+}
+.section{
+    width: 100vw;
+    height: 100vh;;
+}
+
+.center {
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+  }
+
+.card{
+    padding: 10px;
 }
