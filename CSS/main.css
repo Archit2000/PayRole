@@ -2,6 +2,7 @@
     --primary:#ec5858;
     --secondry:#fd8c04;
     --tertiary:#93abd3;
+    --quartenary:#edf285;
 }
 body{
     background-color:var(--tertiary);
