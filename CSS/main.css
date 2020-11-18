@@ -5,15 +5,15 @@
     --quartenary:#edf285;
 }
 body{
-    background-color:var(--tertiary);
     overflow-x: hidden !important;
-}
-.navbar{
-    background-color: var(--primary) !important;
 }
 .section{
     width: 100vw;
-    height: 100vh;;
+    min-height: 90vh;
+    padding-left: 5%;
+    padding-right: 5%;
+    padding-top: 30px;
+    padding-bottom: 30px;
 }
 
 .center {
