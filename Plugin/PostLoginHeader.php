@@ -6,18 +6,16 @@
     <meta name="description" content="">
     <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
     <meta name="generator" content="Jekyll v4.1.1">
-    <title>Dashboard Template · Bootstrap</title>
+    <title>PayRole</title>
   </head>
   <body>
-    <nav class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0 shadow">
-  <a class="navbar-brand col-md-3 col-lg-2 mr-0 px-3" href="#">Company name</a>
-  <button class="navbar-toggler position-absolute d-md-none collapsed" type="button" data-toggle="collapse" data-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-  <input class="form-control form-control-dark w-100" type="text" placeholder="Search" aria-label="Search">
+<nav class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0 shadow" >
+  <a class="navbar-brand col-md-3 col-lg-2 mr-0 px-3" href="Dashboard.php">PayRole</a>
   <ul class="navbar-nav px-3">
-    <li class="nav-item text-nowrap">
-      <a class="nav-link" href="#">Sign out</a>
+    <li class="nav-item">
+      <a class="nav-link active" href="#" data-toggle="tooltip" data-placement="left" title="Logout">
+          <img src="Media\undraw_male_avatar_323b.svg" alt="Sign Out" width="31">
+        </a> 
     </li>
   </ul>
 </nav>
@@ -29,43 +27,45 @@
       <div class="sidebar-sticky pt-3">
         <ul class="nav flex-column">
           <li class="nav-item">
-            <a class="nav-link active" href="#">
-              <span data-feather="home"></span>
-              Dashboard <span class="sr-only">(current)</span>
+            <a class="nav-link " href="Dashboard.php">
+              Report 
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">
-              <span data-feather="file"></span>
-              Orders
-            </a>
+            <div class="nav-link" >Users</div>
+                <div class="list-group" Style="padding-left:10px;">
+                <a class="list-group-flush nav-link" href="#">Add User</a>
+                </div>
+                <div class="list-group" Style="padding-left:10px;">
+                <a class="list-group-flush nav-link" href="#">Check User</a>
+                </div>
+                <div class="list-group" Style="padding-left:10px;">
+                <a class="list-group-flush nav-link" href="#">Update User</a>
+                </div>
+                <div class="list-group" Style="padding-left:10px;">
+                <a class="list-group-flush nav-link" href="#">Remove User</a>
+                </div>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">
-              <span data-feather="shopping-cart"></span>
-              Products
-            </a>
+            <div class="nav-link" >Transaction</div>
+                <div class="list-group" Style="padding-left:10px;">
+                <a class="list-group-flush nav-link" href="#">Create Transaction</a>
+                </div>
+                <div class="list-group" Style="padding-left:10px;">
+                <a class="list-group-flush nav-link" href="#">Check Transaction</a>
+                </div>
+                <div class="list-group" Style="padding-left:10px;">
+                <a class="list-group-flush nav-link" href="#">Update Transaction</a>
+                </div>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">
-              <span data-feather="users"></span>
-              Customers
-            </a>
+            <a class="nav-link" href="#">Payrole</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">
-              <span data-feather="bar-chart-2"></span>
-              Reports
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">
-              <span data-feather="layers"></span>
-              Integrations
-            </a>
+            <a class="nav-link" href="#">Leave</a>
           </li>
         </ul>
-
+<!---
         <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
           <span>Saved reports</span>
           <a class="d-flex align-items-center text-muted" href="#" aria-label="Add a new report">
@@ -98,6 +98,7 @@
             </a>
           </li>
         </ul>
+        ---->
       </div>
     </nav>
     <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-md-4">
