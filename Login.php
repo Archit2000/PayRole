@@ -1,6 +1,50 @@
 <?php include('Plugin\AddedLibraries.php'); ?>
 <?php include('Plugin\PreLoginHeader.php'); ?>
 
+<?php
+    error_reporting(0);
+    $errors = array('uid'=>'','password'=>'');
+    $values = array('uid'=>'','password'=>'');
+    if(isset($_POST['Login'])){
+        if(empty($_POST['uid']))
+        $errors['uid']='<div class="text-danger" role="alert">Enter The User ID!</div>';
+        else $values['uid']=$_POST['uid'];
+        if(empty($_POST['password']))
+        $errors['password']='<div class="text-danger" role="alert">Enter The Password!</div>';
+        else $values['password']=$_POST['password'];
+        if(!array_filter($errors)){
+            //---MySQL--
+            //Conect To database
+            $conn= mysqli_connect('localhost','archit','Anuja@Daksh','payrole');
+            //check connection
+            if(!$conn){
+                $temp='<div class="text-danger" role="alert">Connection Error: '. mysqli_connect_error().'</div>';
+                echo $temp;
+            }
+            //SQL Stmt
+            $sql= "Select * from user where u_id= $values[uid] &&  password='$values[password]'";
+            $result= mysqli_query($conn,$sql);
+            $user=mysqli_fetch_assoc($result);
+            mysqli_close($conn);
+        }
+        if(gettype($user)!='NULL'){
+            // if query sucess 
+            if($user['u_id']==$values['uid'] && $user['Password'] ==$values['password']){
+                //data matched
+                //tranfer user data to server
+                $_SESSION['loggedIN']= 1;
+                header('Location: Dashboard.php');
+            }
+        }
+        else if(gettype($user)=='NULL'){
+        }
+        else {
+            $errors['uid']='<div class="text-danger" role="alert">Re-enter The User ID!</div>';
+            $errors['password']='<div class="text-danger" role="alert">Re-enter The Password!</div>';
+        }
+    }
+?>
+
 <div class="container">
     <div class="row align-items-center">
         <div class="col" style="padding-top:3%;">
@@ -9,21 +53,18 @@
         </div>
         <div class="col">
             <div class="card">
-                <form >
+                <form action="Login.php" method="POST">
                     <div class="form-group">
-                        <label for="exampleInputEmail1">Email address</label>
-                        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-                        <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+                        <label for="exampleInputEmail1">User ID</label>
+                        <input type="text" class="form-control" name="uid">
+                        <?php echo $errors['uid']?>
                     </div>
                     <div class="form-group">
                         <label for="exampleInputPassword1">Password</label>
-                        <input type="password" class="form-control" id="exampleInputPassword1">
+                        <input type="password" class="form-control" name="password">
+                        <?php echo $errors['password']?>
                     </div>
-                    <div class="form-group form-check">
-                        <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                        <label class="form-check-label" for="exampleCheck1">Check me out</label>
-                    </div>
-                    <button type="submit" class="btn btn-primary">Submit</button>
+                    <button type="submit" name="Login" class="btn btn-primary">Login</button>
                 </form>
                 </div>
             </div>

@@ -1,3 +1,12 @@
+<?php
+  if(isset($_POST['logout'])){
+    header('Location: index.php');
+  }
+    
+
+?>
+
+
 <!doctype html>
 <html lang="en">
   <head>
@@ -13,9 +22,11 @@
   <a class="navbar-brand col-md-3 col-lg-2 mr-0 px-3" href="Dashboard.php">PayRole</a>
   <ul class="navbar-nav px-3">
     <li class="nav-item">
-      <a class="nav-link active" href="#" data-toggle="tooltip" data-placement="left" title="Logout">
-          <img src="Media\undraw_male_avatar_323b.svg" alt="Sign Out" width="31">
-        </a> 
+      <form action="index.php" method="POST">
+        <button class="btn btn-dark" name="logout" type="submit">
+          Logout
+        </button> 
+      </form>
     </li>
   </ul>
 </nav>
@@ -34,16 +45,16 @@
           <li class="nav-item">
             <div class="nav-link" >Users</div>
                 <div class="list-group" Style="padding-left:10px;">
-                <a class="list-group-flush nav-link" href="#">Add User</a>
+                <a class="list-group-flush nav-link" href="Add-User.php">Add User</a>
                 </div>
                 <div class="list-group" Style="padding-left:10px;">
-                <a class="list-group-flush nav-link" href="#">Check User</a>
+                <a class="list-group-flush nav-link" href="Check-User.php">Check User</a>
                 </div>
                 <div class="list-group" Style="padding-left:10px;">
-                <a class="list-group-flush nav-link" href="#">Update User</a>
+                <a class="list-group-flush nav-link" href="Update-User.php">Update User</a>
                 </div>
                 <div class="list-group" Style="padding-left:10px;">
-                <a class="list-group-flush nav-link" href="#">Remove User</a>
+                <a class="list-group-flush nav-link" href="Remove-User.php">Remove User</a>
                 </div>
           </li>
           <li class="nav-item">
@@ -102,5 +113,5 @@
       </div>
     </nav>
     <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-md-4">
-        dsfdfhskjdfjndfkjs
+        
     

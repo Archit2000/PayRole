@@ -2,7 +2,9 @@
 <?php include('Plugin\PostLoginHeader.php'); ?>
 <link rel="stylesheet" href="CSS\dashboard.css">
 
-
+<?php
+echo $_SESSION['loggedIN'];
+?>
 
 <!---ender--->
 </main>

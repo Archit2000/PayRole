@@ -25,3 +25,7 @@ body{
 .card{
     padding: 10px;
 }
+
+.void{
+    background-color: transparent;
+}
