@@ -52,7 +52,7 @@
                 <a class="list-group-flush nav-link" href="Add-User.php">Add User</a>
                 </div>
                 <div class="list-group" Style="padding-left:10px;">
-                <a class="list-group-flush nav-link" href="Check-User.php">Check User</a>
+                <a class="list-group-flush nav-link" href="Check-User.php?u_id=0">Check User</a>
                 </div>
                 <div class="list-group" Style="padding-left:10px;">
                 <a class="list-group-flush nav-link" href="Update-User.php">Update User</a>
