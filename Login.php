@@ -1,6 +1,5 @@
 <?php include('Plugin\AddedLibraries.php'); ?>
 <?php include('Plugin\PreLoginHeader.php'); ?>
-
 <?php
     error_reporting(0);
     $errors = array('uid'=>'','password'=>'');
@@ -32,7 +31,9 @@
             if($user['u_id']==$values['uid'] && $user['Password'] ==$values['password']){
                 //data matched
                 //tranfer user data to server
-                $_SESSION['loggedIN']= 1;
+                session_start();
+                $_SESSION['userid']=$values['uid'];
+                $_SESSION['userpassword']=$values['password'];
                 header('Location: Dashboard.php');
             }
         }

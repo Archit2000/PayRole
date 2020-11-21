@@ -2,8 +2,10 @@
   if(isset($_POST['logout'])){
     header('Location: index.php');
   }
-    
-
+  if($_SESSION['userid']=='NULL' && $_SESSION['userpassword']=='NULL'){
+    header('Location: index.php');
+  }
+  
 ?>
 
 
@@ -43,7 +45,9 @@
             </a>
           </li>
           <li class="nav-item">
-            <div class="nav-link" >Users</div>
+                <div class="list-group" >
+                <a class="list-group-flush nav-link" href="Users.php">Users</a>
+                </div>
                 <div class="list-group" Style="padding-left:10px;">
                 <a class="list-group-flush nav-link" href="Add-User.php">Add User</a>
                 </div>
