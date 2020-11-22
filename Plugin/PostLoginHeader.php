@@ -2,10 +2,13 @@
   if(isset($_POST['logout'])){
     header('Location: index.php');
   }
-  if($_SESSION['userid']=='NULL' && $_SESSION['userpassword']=='NULL'){
+  else if($_SESSION['userid']=='NULL' && $_SESSION['userpassword']=='NULL'){
     header('Location: index.php');
   }
   
+  if ( ! headers_sent() ) {
+    header_remove();
+}
 ?>
 
 
@@ -58,7 +61,7 @@
                 <a class="list-group-flush nav-link" href="Update-User.php">Update User</a>
                 </div>
                 <div class="list-group" Style="padding-left:10px;">
-                <a class="list-group-flush nav-link" href="Remove-User.php">Remove User</a>
+                <a class="list-group-flush nav-link" href="Remove-User.php?u_id=0">Remove User</a>
                 </div>
           </li>
           <li class="nav-item">
