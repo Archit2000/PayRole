@@ -30,7 +30,8 @@ error_reporting(0);
           $temp='<div class="text-danger" role="alert">Connection Error: '. mysqli_connect_error().'</div>';
           echo $temp;
       }
-      $sql = "Delete from user where u_id=" . $_POST['u_id'];
+      $date=date("Y/m/d");
+      $sql = "Update user set DOL = curdate() where u_id=" . $_POST['u_id'] . '&& DOL is NULL';
       $result= mysqli_query($conn,$sql);
       $userdetail= mysqli_fetch_assoc($result);
       print_r($userdetail);

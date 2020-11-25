@@ -65,22 +65,21 @@
                 </div>
           </li>
           <li class="nav-item">
-            <div class="nav-link" >Transaction</div>
+              <a class="nav-link " href="Transaction.php">
+              Transaction 
+              </a>
                 <div class="list-group" Style="padding-left:10px;">
                 <a class="list-group-flush nav-link" href="#">Create Transaction</a>
                 </div>
                 <div class="list-group" Style="padding-left:10px;">
-                <a class="list-group-flush nav-link" href="#">Check Transaction</a>
+                <a class="list-group-flush nav-link" href="Check-Transaction.php">Check Transaction</a>
                 </div>
-                <div class="list-group" Style="padding-left:10px;">
-                <a class="list-group-flush nav-link" href="#">Update Transaction</a>
-                </div>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Payrole</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="#">Leave</a>
+            <div class="list-group" Style="padding-left:10px;">
+                <a class="list-group-flush nav-link" href="#">Add Leave</a>
+                </div>
           </li>
         </ul>
 <!---

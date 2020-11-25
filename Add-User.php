@@ -3,6 +3,8 @@
 <link rel="stylesheet" href="CSS\dashboard.css">
 
 <?php
+error_reporting(0);
+
  $conn= mysqli_connect('localhost','archit','Anuja@Daksh','payrole');
  //check connection
  if(!$conn){
