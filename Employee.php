@@ -1,5 +1,5 @@
 <?php include('Plugin\AddedLibraries.php'); ?>
-<?php include('Plugin\PostLoginHeader.php'); ?>
+<?php include('Plugin\PostLoginHeaderEmployee.php'); ?>
 <link rel="stylesheet" href="CSS\dashboard.css">
 
 <?php
@@ -175,7 +175,7 @@ mysqli_close($conn);
 
 
 <!---ender--->
-</main>
+
 </div>
 </div>
 </body>

@@ -28,13 +28,21 @@
         }
         if(gettype($user)!='NULL'){
             // if query sucess 
-            if($user['u_id']==$values['uid'] && $user['Password'] ==$values['password']){
+            if($user['u_id']==$values['uid'] && $user['Password'] ==$values['password'] && $user['Designation']== 'Manager'){
                 //data matched
                 //tranfer user data to server
                 session_start();
                 $_SESSION['userid']=$values['uid'];
+                $_SESSION['curUserID']=$values['uid'];
                 $_SESSION['userpassword']=$values['password'];
                 header('Location: Dashboard.php');
+            }
+            else {
+                session_start();
+                $_SESSION['userid']=$values['uid'];
+                $_SESSION['curUserID']=$values['uid'];
+                $_SESSION['userpassword']=$values['password'];
+                header('Location: Employee.php');
             }
         }
         else if(gettype($user)=='NULL'){

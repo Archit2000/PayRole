@@ -3,19 +3,61 @@
 <link rel="stylesheet" href="CSS\dashboard.css">
 
 <?php
- $conn= mysqli_connect('localhost','archit','Anuja@Daksh','payrole');
- //check connection
- if(!$conn){
-     $temp='<div class="text-danger" role="alert">Connection Error: '. mysqli_connect_error().'</div>';
-     echo $temp;
- }
- //SQL Stmt
- $sql= "Select * from user";
- $result= mysqli_query($conn,$sql);
- $userdetails=mysqli_fetch_all($result,MYSQLI_ASSOC);
- mysqli_close($conn);
+error_reporting(0);
+ if(isset($_POST['refresh'])){
+  if($_POST['Designation']!=NULL){
+      $conn= mysqli_connect('localhost','archit','Anuja@Daksh','payrole');
+      //check connection
+      if(!$conn){
+          $temp='<div class="text-danger" role="alert">Connection Error: '. mysqli_connect_error().'</div>';
+          echo $temp;
+      }
+      $sql= "Select * from user where Designation like '%$_POST[Designation]%'";
+      if($_POST['curEmployee']==TRUE){
+        $sql= "Select * from user where Designation like '%$_POST[Designation]%' && DOL is NULL";
+      }
+      $result= mysqli_query($conn,$sql);
+      $userdetails=mysqli_fetch_all($result,MYSQLI_ASSOC);
+      mysqli_close($conn);
+  }
+}
+else {
+  $conn= mysqli_connect('localhost','archit','Anuja@Daksh','payrole');
+      //check connection
+      if(!$conn){
+          $temp='<div class="text-danger" role="alert">Connection Error: '. mysqli_connect_error().'</div>';
+          echo $temp;
+      }
+      $sql= "Select * from user where DOL is NULL";
+      $result= mysqli_query($conn,$sql);
+      $userdetails=mysqli_fetch_all($result,MYSQLI_ASSOC);
+      mysqli_close($conn);
+}
+
 ?>
 
+<div class="container" style="padding-top:20px;">
+  <div class="row align-items-center">
+    <div class="col">
+        <form action="Users.php" method="POST">
+            <div class="form-group row">
+                <label class="col-sm-1 col-form-label">Designation</label>
+                <div class="col-sm-2">
+                <input type="text" name="Designation" class="form-control">
+                </div>
+                <div class="custom-control custom-switch mt-2">
+                  <input type="checkbox" class="custom-control-input" id="customSwitch1" name="curEmployee">
+                  <label class="custom-control-label" for="customSwitch1">Current Employees only</label>
+                </div>
+                <div class="col-sm">
+                <button class="btn btn-primary btn-block" name="refresh" type="submit">
+                    Refresh
+                </button> 
+                </div>
+            </div>
+        </form>
+    </div>
+  </div>
 <table class="table table-striped table-hover table-sm mt-3">
   <thead class="thead-dark">
     <tr>

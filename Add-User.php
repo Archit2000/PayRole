@@ -36,6 +36,17 @@ error_reporting(0);
         mysqli_close($conn);
     }
  }
+ $conn= mysqli_connect('localhost','archit','Anuja@Daksh','payrole');
+ //check connection
+ if(!$conn){
+     $temp='<div class="text-danger" role="alert">Connection Error: '. mysqli_connect_error().'</div>';
+     echo $temp;
+ }
+ //SQL Stmt
+ $sql= "insert into attendancerecord values($u_id,0,0)";
+ $result= mysqli_query($conn,$sql);
+ mysqli_close($conn);
+
 
 ?>
 

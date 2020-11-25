@@ -1,14 +1,10 @@
 <?php
   if(isset($_POST['logout'])){
-    header('Location: index.php');
-  }
-  else if($_SESSION['userid']=='NULL' && $_SESSION['userpassword']=='NULL'){
-    header('Location: index.php');
+    $_SESSION['loggedin']=0;
+    echo("<meta http-equiv='refresh' content='1' url='http://localhost/PayRole/index.php'>");
   }
   
-  if ( ! headers_sent() ) {
-    header_remove();
-}
+
 ?>
 
 
@@ -76,10 +72,7 @@
                 </div>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Leave</a>
-            <div class="list-group" Style="padding-left:10px;">
-                <a class="list-group-flush nav-link" href="#">Add Leave</a>
-                </div>
+            <a class="nav-link" href="Leave.php">Leave</a>
           </li>
         </ul>
 <!---
