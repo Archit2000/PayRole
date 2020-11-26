@@ -10,7 +10,7 @@
      echo $temp;
  }
  //SQL Stmt
- $sql= "Select * from transaction";
+ $sql= "Select * from transaction order by transaction_id desc";
  $result= mysqli_query($conn,$sql);
  $userdetails=mysqli_fetch_all($result,MYSQLI_ASSOC);
  mysqli_close($conn);
@@ -20,10 +20,10 @@
   <thead class="thead-dark">
     <tr>
       <th scope="col">Transaction_ID</th>
-      <th scope="col">Date</th>
-      <th scope="col">User_ID</th>
+      <th scope="col" class="text-center">Date</th>
+      <th scope="col" class="text-center">User_ID</th>
       <th scope="col">Amount</th>
-      <th scope="col">Type</th>
+      <th scope="col" class="text-center">Type</th>
     </tr>
   </thead>
   <tbody>
@@ -38,11 +38,11 @@
         }
         ?>
         <tr  class="<?php echo $color; ?>"> 
-        <th scope="row"><?php echo $userdetail['transaction_id'];?></th>
-        <td><?php echo $userdetail['transaction_date'];?></td>
-        <td><?php echo $userdetail['user_id'];?></td>
-        <td><?php echo $userdetail['amount'];?></td>
-        <td><?php echo $userdetail['type'];?></td>
+        <th scope="row" class="text-right" style="width:10px;"><?php echo $userdetail['transaction_id'];?></th>
+        <td class="text-center"><?php echo $userdetail['transaction_date'];?></td>
+        <td class="text-center"><?php echo $userdetail['user_id'];?></td>
+        <td class="text-right" style="width:10px;"><?php echo $userdetail['amount'];?></td>
+        <td class="text-center"><?php echo $userdetail['type'];?></td>
         </tr>
     <?php } ?>
   </tbody>

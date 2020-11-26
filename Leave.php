@@ -5,14 +5,13 @@
 
 
 <?php
-error_reporting(0);
  $conn= mysqli_connect('localhost','archit','Anuja@Daksh','payrole');
  //check connection
  if(!$conn){
      $temp='<div class="text-danger" role="alert">Connection Error: '. mysqli_connect_error().'</div>';
      echo $temp;
  }
- $sql ="Select * from attendancerecord";
+ $sql ="Select attendancerecord.* from attendancerecord INNER join user using(u_id) where user.DOL is NULL ";
  $result= mysqli_query($conn,$sql);
  $transaction= mysqli_fetch_all($result, MYSQLI_ASSOC);
  mysqli_close($conn);
@@ -65,13 +64,13 @@ if(isset($_POST['refresh'])){
     <?php 
     foreach($transaction as $transactionofuser){ 
         $color='';
-        if ($transactionofuser['unPaidLeave']+$transactionofuser['totalLeave']>=45) {
+        if ($transactionofuser['unPaidLeave']+$transactionofuser['totalLeave']>=60) {
             $color="bg-danger text-white";
         }
-        else if($transactionofuser['unPaidLeave']>0){
+        else if($transactionofuser['unPaidLeave']>0 && $transactionofuser['totalLeave']>31){
             $color="bg-warning text-dark";
         }
-        else if($transactionofuser['totalLeave']>31){
+        else if($transactionofuser['totalLeave']>=40){
             $color="bg-info text-white";
         }
         ?>

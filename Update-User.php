@@ -4,6 +4,8 @@
 <?php
     error_reporting(0);
   $tempArray;
+  $color="btn-success";
+  $value="Refresh";
   $error=array('u_id'=>'');
   if(isset($_POST['Delete'])){
     if($_POST['u_id']==NULL){
@@ -21,6 +23,8 @@
       $userdetail= mysqli_fetch_assoc($result);
       $tempArray=$userdetail;
       mysqli_close($conn);
+      $color="btn-success";
+      $value="Update";
     }
     else {
         
@@ -34,6 +38,8 @@
       $sql = "Update user set name ='$_POST[Name]', DOB = '$_POST[DOB]', Contact = $_POST[Contact], Address = '$_POST[Address]' , Salary= $_POST[Salary], Designation= '$_POST[Designation]', password='$_POST[Password]'  where u_id= $_POST[u_id] && DOL is NULL";
       $result= mysqli_query($conn,$sql);
       mysqli_close($conn);
+      $color="btn-success";
+      $value="Refresh";
     }
   }
 
@@ -92,7 +98,7 @@
                 </div>
             </div>
            <div class="form-group row">
-                <button type="submit" class="btn btn-success center" name="Delete">Update</button>
+                <button type="submit" class="btn <?php echo $color; ?> center" name="Delete"><?php echo $value;?></button>
             </div>
         </form>
         

@@ -35,7 +35,7 @@ mysqli_close($conn);
      echo $temp;
  }
  //SQL Stmt
- $sql= "Select * from transaction where user_id=$_SESSION[curUserID] limit 10";
+ $sql= "Select * from transaction where user_id=$_SESSION[curUserID]  order by transaction_id desc limit 10";
  $result= mysqli_query($conn,$sql);
  $userdetails=mysqli_fetch_all($result,MYSQLI_ASSOC);
  mysqli_close($conn);

@@ -14,7 +14,7 @@ if(isset($_POST['refresh'])){
             $temp='<div class="text-danger" role="alert">Connection Error: '. mysqli_connect_error().'</div>';
             echo $temp;
         }
-        $sql = "Select * from transaction where user_id= $_POST[u_id]";
+        $sql = "Select * from transaction where user_id= $_POST[u_id]  order by transaction_id desc";
         $result= mysqli_query($conn,$sql);
         $transaction= mysqli_fetch_all($result, MYSQLI_ASSOC);
         mysqli_close($conn);

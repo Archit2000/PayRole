@@ -65,7 +65,7 @@
               Transaction 
               </a>
                 <div class="list-group" Style="padding-left:10px;">
-                <a class="list-group-flush nav-link" href="#">Create Transaction</a>
+                <a class="list-group-flush nav-link" href="Create-Transaction.php">Create Transaction</a>
                 </div>
                 <div class="list-group" Style="padding-left:10px;">
                 <a class="list-group-flush nav-link" href="Check-Transaction.php">Check Transaction</a>

@@ -20,6 +20,21 @@ error_reporting(0);
       $userdetails=mysqli_fetch_all($result,MYSQLI_ASSOC);
       mysqli_close($conn);
   }
+  else{
+    $conn= mysqli_connect('localhost','archit','Anuja@Daksh','payrole');
+    //check connection
+    if(!$conn){
+        $temp='<div class="text-danger" role="alert">Connection Error: '. mysqli_connect_error().'</div>';
+        echo $temp;
+    }
+    $sql= "Select * from user";
+    if($_POST['curEmployee']==TRUE){
+      $sql= "Select * from user where DOL is NULL";
+    }
+    $result= mysqli_query($conn,$sql);
+    $userdetails=mysqli_fetch_all($result,MYSQLI_ASSOC);
+    mysqli_close($conn);   
+  }
 }
 else {
   $conn= mysqli_connect('localhost','archit','Anuja@Daksh','payrole');
@@ -28,7 +43,7 @@ else {
           $temp='<div class="text-danger" role="alert">Connection Error: '. mysqli_connect_error().'</div>';
           echo $temp;
       }
-      $sql= "Select * from user where DOL is NULL";
+      $sql= "Select * from user";
       $result= mysqli_query($conn,$sql);
       $userdetails=mysqli_fetch_all($result,MYSQLI_ASSOC);
       mysqli_close($conn);

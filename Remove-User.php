@@ -6,6 +6,8 @@
 error_reporting(0);
   $tempArray;
   $error=array('u_id'=>'');
+  $color="btn-success";
+  $value="Refresh";
   if(isset($_POST['Delete'])){
     if($_POST['u_id']==NULL){
       $error['u_id']='<div class="text-danger" role="alert">Enter The User ID!</div>';
@@ -22,6 +24,8 @@ error_reporting(0);
       $userdetail= mysqli_fetch_assoc($result);
       $tempArray=$userdetail;
       mysqli_close($conn);
+      $color="btn-danger";
+      $value="Delete";
     }
     else {
       $conn= mysqli_connect('localhost','archit','Anuja@Daksh','payrole');
@@ -36,6 +40,8 @@ error_reporting(0);
       $userdetail= mysqli_fetch_assoc($result);
       print_r($userdetail);
       mysqli_close($conn);
+      $color="btn-success";
+      $value="Refresh";
     }
   }
 
@@ -94,7 +100,7 @@ error_reporting(0);
                 </div>
             </div>
            <div class="form-group row">
-                <button type="submit" readonly class="btn btn-danger center" name="Delete">Delete</button>
+                <button type="submit" readonly class="btn  <?php echo $color; ?> center" name="Delete"><?php echo $value;?></button>
             </div>
         </form>
         
