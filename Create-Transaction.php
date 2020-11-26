@@ -4,6 +4,7 @@
 
 
 <?php
+error_reporting(0);
 if(isset($_POST['ADD'])){
     if($_POST['CATEGORY']=='Bonus'){
         $conn= mysqli_connect('localhost','archit','Anuja@Daksh','payrole');
